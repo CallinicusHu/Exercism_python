@@ -15,28 +15,28 @@ def value_of_card(card):
     2.  "A" (ace card) = 1
     3.  "2" - "10" = numerical value.
     """
-    
+
     if "J" in card:
         return int(10)
     if "K" in card:
         return int(10)
     if "Q" in card:
-        return int(10)    
+        return int(10)
     if "A" in card:
         return int(1)
-    
+
     """
     card == "J"
-    
+
     card == "K"
         return int(10)
-    
+
     card == "Q"
         return int(10)
-    
+
      card == "A"
         return int(1)
-       """     
+       """
     return int(card)
 
 
@@ -56,7 +56,7 @@ def higher_card(card_one, card_two):
         return card_one
     if score_one < score_two:
         return card_two
-        
+
     return card_one, card_two
 
 
@@ -72,7 +72,7 @@ def value_of_ace(card_one, card_two):
     """
 
     ace = 11
-    
+
     if value_of_card(card_one) + value_of_card(card_two) + ace > 21:
         ace = 1
 
@@ -81,7 +81,7 @@ def value_of_ace(card_one, card_two):
 
     if card_two == "A":
         ace = 1
-    
+
     return ace
 
 
@@ -97,15 +97,15 @@ def is_blackjack(card_one, card_two):
     """
 
     blackj = False
-    
+
 #    if value_of_card(higher_card(card_one, card_two)) + value_of_ace(card_one, card_two) == 21:
 
-    if card_one == card_two == "A":
-        return blackj
-    
+    #if card_one == card_two == "A":
+    #    return blackj
+
         # ez átmegy de felesleges a  card_one == "A" xor card_two == "A" elég lenne de nem ismeri fel a xort
-        
-    if (card_one == "A" or card_two == "A") and (value_of_card(card_one) or value_of_card(card_two) == 10):
+
+    if ((card_one == card_two == "A") or (card_one == "A" or card_two == "A")) and (value_of_card(card_one) or value_of_card(card_two) == 10):
         blackj = True
 
     return blackj
