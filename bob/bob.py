@@ -7,7 +7,11 @@ def response(hey_bob):
     x = 5
     
 
-    if (bob[-1] == "?") and hey_bob.isupper():
+
+    if len(bob) < 1:
+        x = 3
+    
+    elif (bob[-1] == "?") and hey_bob.isupper():
         x = 2
     
     elif bob[-1] == "?":
@@ -15,9 +19,6 @@ def response(hey_bob):
 
     elif bob.isupper():
         x = 1
-  
-    elif len(bob) < 1:
-        x = 3
     
     else:
         x = 4
