@@ -28,12 +28,18 @@ def make_word_groups(vocab_words):
     produces the following string: 'en :: enclose :: enjoy :: enlighten'.
     """
 
-    myTuple = (vocab_words(1), vocab_words(2), vocab_words(3),)
+    number_of_words = len(vocab_words)
 
-    vocab_words = vocab_words(0).join(vocab_words(1, 2, 3))
+    for a in range(1, number_of_words):
+        vocab_words[a] = vocab_words[0] + vocab_words[a]
+
+    vocab_words = " :: ".join(vocab_words)
+
+    #print(vocab_words)
 
     return vocab_words
 
+#make_word_groups(['en', 'circle', 'fold', 'close', 'joy', 'lighten', 'tangle', 'able', 'code', 'culture'])
 
 def remove_suffix_ness(word):
     """Remove the suffix from the word while keeping spelling in mind.
@@ -44,8 +50,18 @@ def remove_suffix_ness(word):
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
 
-    pass
+    x = len(word)-4
+    word = word[0: x]
 
+    if word[-1] == "i":
+        x = len(word) - 1
+        word = word[0: x] + "y"
+
+    #print(word)
+
+    return word
+
+#remove_suffix_ness("heaviness")
 
 def adjective_to_verb(sentence, index):
     """Change the adjective within the sentence to a verb.
@@ -57,4 +73,4 @@ def adjective_to_verb(sentence, index):
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
 
-    pass
+    return
