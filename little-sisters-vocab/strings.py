@@ -73,4 +73,16 @@ def adjective_to_verb(sentence, index):
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
 
-    return
+    sentence = list(sentence.split(" "))
+    #print(sentence)
+    #print(sentence[index])
+    nemtudommimicsoda = sentence[index]
+    if nemtudommimicsoda[-1] == ("." or "," or "?" or "!"):
+        x = len(nemtudommimicsoda) - 1
+        nemtudommimicsoda = nemtudommimicsoda[0: x]
+
+    nemtudommimicsoda = nemtudommimicsoda + "en"
+
+    return nemtudommimicsoda
+
+#adjective_to_verb("fekete macska farka barna", 1)
