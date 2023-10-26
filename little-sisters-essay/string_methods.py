@@ -20,7 +20,8 @@ def check_sentence_ending(sentence):
     :param sentence: str - a sentence to check.
     :return: bool - return True if punctuated correctly with period, False otherwise.
     """
-    if sentence(-1) == ".":
+    sentence = list(sentence)
+    if sentence[-1] == ".":
         return True
     else:
         return False
@@ -33,8 +34,7 @@ def clean_up_spacing(sentence):
     :return: str - a sentence that has been cleaned of leading and trailing space characters.
     """
 
-    sentence.lstrip()
-    sentence.rstrip()
+    sentence = sentence.lstrip().rstrip()
     #ez is működik de megint az hiányzik nekem hogy nem tudom megállapítani hogy van-e az elején/végén szóköz és hány
 
     return sentence
