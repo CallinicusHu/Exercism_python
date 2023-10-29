@@ -57,10 +57,6 @@ def clean_up(combined_record_group):
     (see HINTS.md for an example).
     """
 
-    # combined_record_group = list(combined_record_group)
-
-    final = ""
-
     # fail
     """
     for access in range(0, len(combined_record_group)):
@@ -73,12 +69,6 @@ def clean_up(combined_record_group):
         
     """
     # fail
-
-    combined_record_group = [list(x) for x in combined_record_group]
-
-    for goin in range(len(combined_record_group)):
-        del combined_record_group[goin][1]
-        #combined_record_group[goin].append("\n")
 
     #fail
     """
@@ -93,6 +83,15 @@ def clean_up(combined_record_group):
         final = final + "')\n"
     """
     #fail
+
+    final = ""
+
+    combined_record_group = [list(x) for x in combined_record_group]
+
+    for goin in range(len(combined_record_group)):
+        del combined_record_group[goin][1]
+
+
 
     return final
 
