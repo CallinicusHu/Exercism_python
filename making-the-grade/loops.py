@@ -107,9 +107,9 @@ def perfect_score(student_info):
 
     x = []
 
-    for sublist in student_info:
-        if sublist[1] == 100:
-            x = sublist
+    for perf in student_info:
+        if perf[1] == 100:
+            x = perf
             break
 
 
@@ -118,5 +118,6 @@ def perfect_score(student_info):
     #https: // stackoverflow.com / questions / 1156087 / search - in -lists - of - lists - by - given - index
     #ebből másoltam de ezt a sublist[1] nem értem mit csinál és hogy működik
     #talán a listában lévő listák 1-es indexén néz meg valamit?
+    #szerk azt értem hogy a neve bármi lehet, (pl perf) és a sublist nem valami az [1]ben nem vagyok biztos :-)
 
 
