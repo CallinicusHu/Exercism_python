@@ -26,15 +26,15 @@ def count_failed_students(student_scores):
     :return: int - count of student scores at or below 40.
     """
 
-    cont = 0
+    count = 0   
 
     for scores in student_scores:
         if scores <= 40:
-            cont += 1
+            count += 1
 
     # van egy olyan method hogy count és próbáltam rájönni, hátha jó erre, de nem sikerült megfejtenem
 
-    return cont
+    return count
 
 
 def above_threshold(student_scores, threshold):
@@ -45,13 +45,13 @@ def above_threshold(student_scores, threshold):
     :return: list - of integer scores that are at or above the "best" threshold.
     """
 
-    cont = []
+    count = []
 
     for scores in student_scores:
         if scores >= threshold:
-            cont.append(scores)
+            count.append(scores)
 
-    return cont
+    return count
 
 
 def letter_grades(highest):
@@ -91,7 +91,7 @@ def student_ranking(student_scores, student_names):
     new_list = []
 
     for index, word in enumerate(student_scores):
-        k = str(index + 1) + ". " + student_names[index] + ": " + str(student_scores[index])
+        k = f"{str(index + 1)}. {student_names[index]}: {str(student_scores[index])}"
         new_list.append(k)
 
     # szinte biztos vagyok benne, hogy valahogy tudom ugyanazokra az indexekre valahogy csinisebben számosítani és egymás mellé tenni a listák elemeit, de most nem találtam meg
