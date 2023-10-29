@@ -9,7 +9,8 @@ def round_scores(student_scores):
     """
 
     for index, scores in enumerate(student_scores):
-        student_scores[index] = int(round(scores))  # elolvastam 10x a feladatot begépeltem külön terminalba mire észrevettem hogy a legközelebbi kerekhez kell kerekíteni nem kerekre, nagyon kerestem mi a forom baja
+        student_scores[index] = int(round(
+            scores))  # elolvastam 10x a feladatot begépeltem külön terminalba mire észrevettem hogy a legközelebbi kerekhez kell kerekíteni nem kerekre, nagyon kerestem mi a forom baja
 
     # for scores in student_scores:
     #    scores = int(round(scores)) #elolvastam 10x a feladatot begépeltem külön terminalba mire észrevettem hogy a legközelebbi kerekhez kell kerekíteni nem kerekre, nagyon kerestem mi a forom baja
@@ -112,12 +113,9 @@ def perfect_score(student_info):
             x = perf
             break
 
-
     return x
 
-    #https: // stackoverflow.com / questions / 1156087 / search - in -lists - of - lists - by - given - index
-    #ebből másoltam de ezt a sublist[1] nem értem mit csinál és hogy működik
-    #talán a listában lévő listák 1-es indexén néz meg valamit?
-    #szerk azt értem hogy a neve bármi lehet, (pl perf) és a sublist nem valami az [1]ben nem vagyok biztos :-)
-
-
+    # https: // stackoverflow.com / questions / 1156087 / search - in -lists - of - lists - by - given - index
+    # ebből másoltam de ezt a sublist[1] nem értem mit csinál és hogy működik
+    # talán a listában lévő listák 1-es indexén néz meg valamit?
+    # szerk azt értem hogy a neve bármi lehet, (pl perf) és a sublist nem valami az [1]ben nem vagyok biztos :-)
