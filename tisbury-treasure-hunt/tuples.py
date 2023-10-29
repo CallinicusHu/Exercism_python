@@ -90,8 +90,12 @@ def clean_up(combined_record_group):
 
     for goin in range(len(combined_record_group)):
         del combined_record_group[goin][1]
+        #combined_record_group[goin].append("\n")
 
+    combined_record_group = [tuple(x) for x in combined_record_group]
 
+    for goin in range(len(combined_record_group)):
+        final = final + f"{combined_record_group[goin]}\n"
 
     return final
 
