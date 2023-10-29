@@ -61,7 +61,7 @@ def clean_up(combined_record_group):
 
     final = ""
 
-    #fail
+    # fail
     """
     for access in range(0, len(combined_record_group)):
         final = final + (
@@ -72,6 +72,28 @@ def clean_up(combined_record_group):
         )
         
     """
+    # fail
+
+    combined_record_group = [list(x) for x in combined_record_group]
+
+    for goin in range(len(combined_record_group)):
+        del combined_record_group[goin][1]
+        #combined_record_group[goin].append("\n")
+
+    #fail
+    """
+    # combined_record_group = [str(x) for x in combined_record_group]
+
+    for access in range(len(combined_record_group)):
+        final = final + "('"
+        for scribe in combined_record_group[access]:
+            final = final + f"{scribe}, "
+            #if not(combined_record_group[access][0]):
+            #    final = final + ", "
+        final = final + "')\n"
+    """
     #fail
 
     return final
+
+
