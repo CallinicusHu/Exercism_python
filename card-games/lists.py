@@ -101,13 +101,13 @@ def average_even_is_average_odd(hand):
     #c = 0
 
     for c in odd:
-        hand_o = hand_o + [hand[c]]
+        hand_o.append(hand[c])
         #c += 1
 
     #c = 0
 
     for c in even:
-        hand_e = hand_e + [hand[c]] # biztos nagyon ronda és felesleges dolgok vannak benne és forral kéne ha kell-e egyáltalán ilyen bele de így sikerült
+        hand_e.append(hand[c]) # biztos nagyon ronda és felesleges dolgok vannak benne és forral kéne ha kell-e egyáltalán ilyen bele de így sikerült
         #c += 1
 
     if card_average(hand_o) == card_average(hand_e):
