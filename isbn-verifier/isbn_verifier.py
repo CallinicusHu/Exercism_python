@@ -1,6 +1,5 @@
 def is_valid(isbn):
-
-    #fail
+    # fail
     """
     if len(isbn) < 10:
         return False
@@ -27,26 +26,9 @@ def is_valid(isbn):
     if calc + last % 11 == 0:
         return True
     """
-    #Fail
+    # Fail
 
-
-    isbn = list(isbn)
-    if len(isbn) < 11:
-        return False
-    last = isbn.pop(-1)
-    print("1", isbn, type(isbn))
-    print("2", last, type(isbn))
-    if last == "X":
-        last = "10"
-
-    print("3", last, type(last))
-
-    if not(last.isnumeric()):
-        return False
-
-    last = int(last)
-
-    #vacak = isbn
+    # vacak = isbn
 
     """
     for rosz in vacak:
@@ -58,24 +40,79 @@ def is_valid(isbn):
             print("\t", rosz, isbn)
     """
 
-    print("fail", isbn)
-
-    if not(len(isbn) == 12) or not[s for s in isbn if s.isdigit()]: #ezen mennyire meglepődtem hogy működik O_O
+    print(isbn)
+    isbn = list(isbn)
+    if len(isbn) < 10:
         return False
+    last = isbn.pop(-1)
+    #print("1", isbn, type(isbn))
+    #print("2", last, type(isbn))
+    if last == "X":
+        last = "10"
+
+    #print("3", last, type(last))
+
+    if not (last.isnumeric()):
+        return False
+
+    last = int(last)
+
+    #print("fail", isbn)
+
+    I_HATE_ISBN = isbn
+
+    if 9 != len(I_HATE_ISBN):
+        if "-" not in I_HATE_ISBN:
+            return False
 
     isbn = [s for s in isbn if s.isdigit()]
 
-    print("actual:", isbn)
-    print(len(isbn))
+    #print("actual:", isbn)
+    #print(len(isbn))
 
-    if not(len(isbn) == 9):
+    if not (len(isbn) == 9):
         return False
 
+    isbn.append(last)
+    #print(isbn)
+
+    I_HATE_ISBN = isbn
+
+    isbn = [int(s) for s in isbn]
+    print("numeric", isbn)
+
+    total = 0
+
+    for index, add in enumerate(range(9, -1, -1)):
+        #print(isbn, ":", (index + 1), isbn[add], (index + 1) * isbn[add], total)
+        total = total + ((index + 1) * isbn[add])
+        #print(total)
+
+    #print("total", total)
+
+    if total % 11 == 0:
+        return True
+
+    return False
 
 
-    return True
 
+a = is_valid("3-598-21508-8adg")
+print(a)
+print("\n")
 
-#is_valid("3-598-21ihacnhnori508-X") # itt nem fut le annyiszor mint kéne?
-#is_valid("3-598-21508-X") #ezzel még működik
-#is_valid("e-598-21S08-X") #
+b = is_valid("359821508262456g")
+print(b)
+print("\n")
+
+c = is_valid("3-5ttert98-21508-8adg")
+print(c)
+print("\n")
+
+d = is_valid("3-598-21508-8")
+print(d)
+print("\n")
+
+e = is_valid("a3-598-21a508-8")
+print(e)
+print("\n")
