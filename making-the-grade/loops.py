@@ -26,7 +26,7 @@ def count_failed_students(student_scores):
     :return: int - count of student scores at or below 40.
     """
 
-    count = 0   
+    count = 0
 
     for scores in student_scores:
         if scores <= 40:
@@ -106,14 +106,11 @@ def perfect_score(student_info):
     :return: list - first `[<student name>, 100]` or `[]` if no student score of 100 is found.
     """
 
-    x = []
-
     for perf in student_info:
         if perf[1] == 100:
-            x = perf
-            break
+            return perf
 
-    return x
+    return []
 
     # https: // stackoverflow.com / questions / 1156087 / search - in -lists - of - lists - by - given - index
     # ebből másoltam de ezt a sublist[1] nem értem mit csinál és hogy működik

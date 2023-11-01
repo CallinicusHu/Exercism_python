@@ -3,6 +3,7 @@
 Python list documentation: https://docs.python.org/3/tutorial/datastructures.html
 """
 
+JACKVALUE = 11
 
 def get_rounds(number):
     """Create a list containing the current and next two round numbers.
@@ -120,7 +121,7 @@ def maybe_double_last(hand):
     :return: list - hand with Jacks (if present) value doubled.
     """
 
-    if hand[-1] == 11:
+    if hand[-1] == JACKVALUE:
         hand[-1] += hand [-1]
 
     return hand
