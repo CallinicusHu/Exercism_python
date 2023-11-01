@@ -95,8 +95,6 @@ def is_valid(isbn):
 
     return False
 
-
-
 a = is_valid("3-598-21508-8adg")
 print(a)
 print("\n")
