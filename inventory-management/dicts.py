@@ -8,12 +8,19 @@ def create_inventory(items):
     :return: dict - the inventory dictionary.
     """
 
+    inventory = dict.fromkeys(items)
+
     for word in items:
-        x = items.count(word)
-        print(x)
+        numb = items.count(word)
+        inventory.update({word: numb})
+
+    print(inventory)
+
+    return inventory
 
 
-create_inventory(["macs", "ka", "ma", "ma"])
+
+create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"])
 
 def add_items(inventory, items):
     """Add or increment items in inventory using elements from the items `list`.
@@ -23,8 +30,15 @@ def add_items(inventory, items):
     :return: dict - the inventory updated with the new items.
     """
 
-    pass
+    for word in items:
 
+        plus = inventory.get(word)
+        inventory.update({word: plus + 1})
+
+    print(inventory)
+    return inventory
+
+add_items(create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"]), ["macs", "macs"])
 
 def decrement_items(inventory, items):
     """Decrement items in inventory using elements from the `items` list.
