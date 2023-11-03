@@ -14,7 +14,7 @@ def create_inventory(items):
         numb = items.count(word)
         inventory.update({word: numb})
 
-    print(inventory)
+    print("create inventory", inventory)
 
     return inventory
 
@@ -35,10 +35,10 @@ def add_items(inventory, items):
         plus = inventory.get(word)
         inventory.update({word: plus + 1})
 
-    print(inventory)
+    print("add inventory", inventory)
     return inventory
 
-add_items(create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"]), ["macs", "macs"])
+add_items(create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"]), ["macs", "macs", "ger"])
 
 def decrement_items(inventory, items):
     """Decrement items in inventory using elements from the `items` list.
@@ -48,7 +48,13 @@ def decrement_items(inventory, items):
     :return: dict - updated inventory with items decremented.
     """
 
-    pass
+    for word in items:
+
+        plus = inventory.get(word)
+        inventory.update({word: plus -1})
+
+    print(inventory)
+    return inventory
 
 
 def remove_item(inventory, item):
