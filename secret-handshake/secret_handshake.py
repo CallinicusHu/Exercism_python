@@ -29,6 +29,7 @@ def commands(binary_str):
         
     """
     # this works but I don't like it
+    #however this have the lest amount of variables needed to operate
 
     #better?
     """
