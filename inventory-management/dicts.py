@@ -14,13 +14,16 @@ def create_inventory(items):
         numb = items.count(word)
         inventory.update({word: numb})
 
-    print("create inventory", inventory)
+    #print("create inventory", inventory)
 
     return inventory
 
 
 
-create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"])
+#x = create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"])
+#y = x
+#print("x", x)
+#print("y", y)
 
 def add_items(inventory, items):
     """Add or increment items in inventory using elements from the items `list`.
@@ -31,14 +34,16 @@ def add_items(inventory, items):
     """
 
     for word in items:
+        if not(word in inventory):
+            inventory.update({word: 0})
 
+    for word in items:
         plus = inventory.get(word)
         inventory.update({word: plus + 1})
 
-    print("add inventory", inventory)
+    #print("add inventory", inventory)
     return inventory
 
-add_items(create_inventory(["macs", "macs", "ka", "ma", "ma", "macs", "macs"]), ["macs", "macs", "ger"])
 
 def decrement_items(inventory, items):
     """Decrement items in inventory using elements from the `items` list.
@@ -48,10 +53,15 @@ def decrement_items(inventory, items):
     :return: dict - updated inventory with items decremented.
     """
 
-    for word in items:
+    for item in items:
+        if not(item in inventory):
+            inventory.update({item: 0})
 
-        plus = inventory.get(word)
-        inventory.update({word: plus -1})
+    for item in items:
+        current_quantity_of_inventory = inventory.get(item)
+        if current_quantity_of_inventory > 0:
+            inventory.update({item: current_quantity_of_inventory -1})
+    
 
     print(inventory)
     return inventory
@@ -65,7 +75,10 @@ def remove_item(inventory, item):
     :return: dict - updated inventory with item removed. Current inventory if item does not match.
     """
 
-    pass
+    if item in inventory:
+        inventory.pop(item)
+
+    return inventory
 
 
 def list_inventory(inventory):
@@ -75,4 +88,27 @@ def list_inventory(inventory):
     :return: list of tuples - list of key, value pairs from the inventory dictionary.
     """
 
-    pass
+    """
+    listing = list(inventory)
+
+    print("\n", listing)
+    print(len(inventory))
+
+    for next in range(len(inventory)):
+        listing.insert(next * 2, )
+
+    print("\n", listing)
+
+    """
+
+    new_inventory = inventory.copy()
+
+    for item in inventory:
+        if inventory.get(item) == 0:
+            new_inventory.pop(item)
+
+    listing = list(new_inventory.items())
+
+    #listing = list(listing)
+
+    return listing
