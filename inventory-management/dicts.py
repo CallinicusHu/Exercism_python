@@ -25,13 +25,14 @@ def add_items(inventory, items):
     :return: dict - the inventory updated with the new items.
     """
 
-    for word in items:
-        if not(word in inventory): #It will not necessarily be nicer or more understandable, but since you can give a default to .get() to return when the key is not present in the dict, you don't have to check for word in inventory before updating (on line 37).
-            inventory.update({word: 0})
+    #for word in items:
+        #if not(word in inventory): #It will not necessarily be nicer or more understandable, but since you can give a default to .get() to return when the key is not present in the dict, you don't have to check for word in inventory before updating (on line 37).
+    #    inventory.get(word, 0)
+    #    inventory.update({word: 0})
             #I don't understand where what how with .get?
 
     for word in items:
-        plus = inventory.get(word)
+        plus = inventory.get(word, 0)
         inventory.update({word: plus + 1})
 
     return inventory
@@ -45,9 +46,9 @@ def decrement_items(inventory, items):
     :return: dict - updated inventory with items decremented.
     """
 
-    for item in items: #Checking for key presence (line 57) doesn't seem to be important in the case of decrement_items().
-        if not(item in inventory): #if I remove this the tests fail, because the loop resets all the values to 0.
-            inventory.update({item: 0})
+    #for item in items: #Checking for key presence (line 57) doesn't seem to be important in the case of decrement_items().
+    #    if not(item in inventory): #if I remove this the tests fail, because the loop resets all the values to 0.
+    #        inventory.update({item: 0})
 
     for item in items:
         current_quantity_of_inventory = inventory.get(item)
