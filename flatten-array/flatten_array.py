@@ -1,15 +1,15 @@
 def flatten(iterable):
-    cheat_str = str(iterable)
+    iterable = str(iterable)
     final = []
     add_to_int = ""
 
-    for numbers in range(len(cheat_str)):
-        if cheat_str[numbers].isdigit() or cheat_str[numbers] == "-":
-            add_to_int += cheat_str[numbers]
+    for numbers in iterable: #numbers is used to find the numbers in cheat_str
+        if numbers.isdigit() or numbers == "-":
+            add_to_int += numbers
         else:
             add_to_int += " "
 
     for hole in add_to_int.split():
-        final.append(eval(hole))
+        final.append(int(hole))
 
     return final
