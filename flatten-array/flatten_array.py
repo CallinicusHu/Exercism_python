@@ -34,9 +34,9 @@ def deep(zoom):
     for next in range(len(zoom)):
         if type(zoom[next]) != list:
             if zoom[next] or zoom[next] == 0:
-                return zoom[next]
+                return zoom[next] # ha a next nem lista tegye a final végére a 26on
         else:
-            deep(next)
+            deep(next) # ha next lista menjen újra amíg nem az
 
     print("zoom", zoom)
     return
