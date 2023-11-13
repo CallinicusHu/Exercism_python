@@ -22,7 +22,7 @@ def rows(letter):
     print("size * size: ", size * size, "\n", len(diamond))
     print("\n")
 
-    for build in range((size+1), (size+1)*size, size+1):
+    for build in range((size), (size)*size, size):
         diamond = diamond.replace(diamond[build], abc[1])
         print(build)
 
