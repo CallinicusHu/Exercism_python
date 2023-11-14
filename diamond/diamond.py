@@ -3,13 +3,13 @@ def rows(letter):
     where = abc.index(letter)  # the index position of the given letter in alphabet, B = 1
     size = max(where * 2 + 1, 1)  # this is how many columns and lines the diamond should have
 
-    diamond = f"{" " * where}A{" " * where}\n" # first A line with spaces
+    diamond = f"{' ' * where}A{' ' * where}\n" # first A line with spaces
 
     for build in range(size - 2):
-        diamond += f"{" " * size}\n" # body of the diamond with spaces
+        diamond += f"{' ' * size}\n" # body of the diamond with spaces
 
     if where > 0:
-        diamond += f"{" " * where}A{" " * where}\n" # last A line with spaces
+        diamond += f"{' ' * where}A{' ' * where}\n" # last A line with spaces
 
     size += 1 #lines got 1 index longer because of \n
 
