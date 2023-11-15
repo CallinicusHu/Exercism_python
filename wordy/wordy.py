@@ -1,4 +1,14 @@
 def answer(question):
+
+
+    """
+    if not("plus" in question):
+        if not ("minus" in question):
+            if not ("divided" in question):
+                if not ("multiplied" in question):
+                    raise ValueError("unknown operation")
+    """
+
     question = question.split()
     question.pop(0)
     question.pop(0)
@@ -22,8 +32,22 @@ def answer(question):
 
     print(question)
 
+    for numbers in range(0, len(question), 2):
+        if question[numbers].isnumeric():
+            print("errors: ", question[numbers])
+
+    if "" in question:
+        question.remove("")
+    question.insert(3, ")")
+    question.insert(0, "(")
+    print(question)
+
+
+
     question = "".join(str(char) for char in question)
     print(question)
+
+
 
     return eval(question)
 
