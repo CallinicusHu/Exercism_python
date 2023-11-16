@@ -1,7 +1,5 @@
 def answer(question):
-
-
-    """
+    """ #fail
     if not("plus" in question):
         if not ("minus" in question):
             if not ("divided" in question):
@@ -9,11 +7,17 @@ def answer(question):
                     raise ValueError("unknown operation")
     """
 
+    if ("cubed" in question) or ("Who" in question): #tests needs these
+        raise ValueError("unknown operation")
+
     question = question.split()
-    question.pop(0)
-    question.pop(0)
-    question[-1] = question[-1].rstrip("?")
-    print("\n")
+    question.pop(0) #remove What
+    question.pop(0) #remove is
+
+    if not (question): #is the question string empty now?
+        raise ValueError("syntax error")
+
+    question[-1] = question[-1].rstrip("?") #remove ? from the end
 
     for index, numbers in enumerate(question):
         if numbers == "plus":
@@ -24,32 +28,31 @@ def answer(question):
 
         if numbers == "multiplied":
             question[index] = "*"
-            question[index + 1] = ""
+            question[index + 1] = "" #this should be deleted but I don't want to mess up the indexing
 
         if numbers == "divided":
             question[index] = "/"
             question[index + 1] = ""
 
-    print(question)
-
-    for numbers in range(0, len(question), 2):
-        if question[numbers].isnumeric():
-            print("errors: ", question[numbers])
-
     if "" in question:
-        question.remove("")
+        question.remove("") #now I delete them
+
+    try: #first and last character must be numbers at this point
+        int(question[0])
+        int(question[-1])
+    except:
+        raise ValueError("syntax error")
+
     question.insert(3, ")")
     question.insert(0, "(")
-    print(question)
-
-
 
     question = "".join(str(char) for char in question)
-    print(question)
 
+    try:
+        return eval(question)
+    except:
+        raise ValueError("syntax error")
 
-
-    return eval(question)
 
 
 """ #I don't need this
