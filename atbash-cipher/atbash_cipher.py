@@ -1,55 +1,23 @@
 def encode(plain_text):
+    plain_text = "".join(ch for ch in plain_text if ch.isalnum()).lower()
+    encoded = str.maketrans("abcdefghijklmnopqrstuvwxyz", "zyxwvutsrqponmlkjihgfedcba")
+    plain_text = plain_text.translate(encoded)
 
-    plain_text = plain_text.lower()
-    new_text = ""
-    final_text = ""
+    if len(plain_text) < 6:
+        return plain_text
 
-    for counter, text in enumerate(plain_text):
-        if text.isalpha():
-            new_text += encode_single(text)
-            print(new_text)
-        if text.isdigit():
-            new_text += text
-            print(new_text)
-
-    for spaces in range(0, len(new_text)):
+    new_text = []
+    for spaces in range(0, len(plain_text)):
         if (spaces > 0) and ((spaces + 1) % 5 == 0):
-            final_text += new_text[spaces] + " "
+            new_text.append(plain_text[spaces] + " ")
         else:
-            final_text += new_text[spaces]
-        print(final_text)
+            new_text.append(plain_text[spaces])
 
-    final_text = final_text.strip()
+    plain_text = "".join(new_text).rstrip()
 
-    print(final_text)
-
-    return final_text
+    return plain_text
 
 def decode(ciphered_text):
-    final_text = ""
-
-    for text in ciphered_text:
-        if text.isalpha():
-            final_text += decode_single(text)
-        if text.isnumeric():
-            final_text += text
-
-    return final_text
-
-def encode_single(letter):
-
-    abc = "abcdefghijklmnopqrstuvwxyz"
-    zyx = "zyxwvutsrqponmlkjihgfedcba"
-
-    letter = zyx[abc.index(letter)]
-
-    return letter
-
-def decode_single(letter):
-
-    abc = "abcdefghijklmnopqrstuvwxyz"
-    zyx = "zyxwvutsrqponmlkjihgfedcba"
-
-    letter = abc[zyx.index(letter)]
-
-    return letter
+    decoded = str.maketrans("zyxwvutsrqponmlkjihgfedcba", "abcdefghijklmnopqrstuvwxyz", " ")
+    ciphered_text = ciphered_text.translate(decoded)
+    return ciphered_text
