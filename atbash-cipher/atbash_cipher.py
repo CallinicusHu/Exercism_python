@@ -12,13 +12,10 @@ def encode(plain_text):
         return plain_text
 
     new_text = []
-    for spaces in range(0, len(plain_text)):
-        if (spaces > 0) and ((spaces + 1) % 5 == 0):
-            new_text.append(plain_text[spaces] + " ")
-        else:
-            new_text.append(plain_text[spaces])
+    for fifths in range(0, len(plain_text), 5):
+        new_text.append(plain_text[fifths:fifths+5])
 
-    return "".join(new_text).rstrip()
+    return " ".join(new_text).rstrip()
 
 def decode(ciphered_text):
     decoded = str.maketrans(zyx, abc, " ")
