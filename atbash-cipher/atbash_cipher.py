@@ -18,11 +18,9 @@ def encode(plain_text):
         else:
             new_text.append(plain_text[spaces])
 
-    plain_text = "".join(new_text).rstrip()
-
-    return plain_text
+    return "".join(new_text).rstrip()
 
 def decode(ciphered_text):
     decoded = str.maketrans(zyx, abc, " ")
-    ciphered_text = ciphered_text.translate(decoded)
-    return ciphered_text
+
+    return ciphered_text.translate(decoded)
