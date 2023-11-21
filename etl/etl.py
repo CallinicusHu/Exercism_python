@@ -3,6 +3,7 @@ def transform(legacy_data):
 
     for score, letters in legacy_data.items():
         for letter in letters:
-            data.update({letter.lower(): score})
+            data[letter.lower()] = score
+            #data.update({letter.lower(): score})
 
     return data

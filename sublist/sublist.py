@@ -19,7 +19,29 @@ UNEQUAL = "UNEQUAL"
 
 
 def sublist(list_one, list_two):
+
     if list_one == list_two:
         return EQUAL
+
+    #list_one.sort()
+    #list_two.sort()
+
+    check = True
+
+    for items in list_one:
+        if items not in list_two:
+            check = False
+    if check:
+        return SUBLIST
+
+    check = True
+
+    for items in list_two:
+        if items not in list_one:
+            check = False
+    if check:
+        return SUPERLIST
+
+    return UNEQUAL
 
 
