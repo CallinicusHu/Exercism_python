@@ -26,21 +26,27 @@ def sublist(list_one, list_two):
     #list_one.sort()
     #list_two.sort()
 
-    check = True
+    compare = []
 
-    for items in list_one:
-        if items not in list_two:
-            check = False
-    if check:
+    for items in range(len(list_one)):
+        if list_one[items] in list_two:
+            compare.append(list_one[items])
+            print(compare)
+
+    if compare == list_one:
         return SUBLIST
 
-    check = True
+    compare.clear()
 
-    for items in list_two:
-        if items not in list_one:
-            check = False
-    if check:
+    for items in range(len(list_two)):
+        if list_two[items] in list_one:
+            compare.append(list_two[items])
+            print(compare)
+
+    if compare == list_two:
         return SUPERLIST
+
+
 
     return UNEQUAL
 
