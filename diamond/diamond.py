@@ -8,7 +8,7 @@ def rows(letter):
     diamond = [abc[0].center(size)]
 
     if position > 0:
-        for line in range(0, position):
+        for line in range(position):
             diamond.append(f"{abc[line + 1]}{' ' * ((line * 2) + 1)}{abc[line + 1]}".center(size))
         for line in range(position, 0, -1):
             diamond.append(diamond[line - 1][::-1])
