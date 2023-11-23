@@ -20,12 +20,27 @@ UNEQUAL = "UNEQUAL"
 
 def sublist(list_one, list_two):
 
+    for num, i in enumerate(list_one):
+        list_one[num] = str(i).replace(str(i), f"({i})")
+
+    for num, i in enumerate(list_two):
+        list_two[num] = str(i).replace(str(i), f"({i})")
+
+    list_one = str(list_one)
+    list_one = list_one[1:-1]
+    list_two = str(list_two)
+    list_two = list_two[1:-1]
+
     if list_one == list_two:
         return EQUAL
 
-    #list_one.sort()
-    #list_two.sort()
+    if list_one in list_two:
+        return SUBLIST
 
+    if list_two in list_one:
+        return SUPERLIST
+
+    """
     compare = []
 
     for items in range(len(list_one)):
@@ -46,7 +61,7 @@ def sublist(list_one, list_two):
     if compare == list_two:
         return SUPERLIST
 
-
+    """
 
     return UNEQUAL
 
