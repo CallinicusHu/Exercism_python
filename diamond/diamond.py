@@ -1,6 +1,23 @@
+import string
+
 def rows(letter):
+
+    abc = string.ascii_uppercase
+    position = abc.index(letter)
+    size = position * 2 + 1
+    diamond = [abc[0].center(size)]
+
+    if position > 0:
+        for line in range(0, position):
+            diamond.append(f"{abc[line + 1]}{" " * ((line * 2) + 1)}{abc[line + 1]}".center(size))
+        for line in range(position, 0, -1):
+            diamond.append(diamond[line - 1][::-1])
+
+    return diamond
+
+    """
     print("\n")
-    abc = "abcdefghijklmnopqrstuvwxyz".upper()
+    abc = string.ascii_uppercase
     where = abc.index(letter)  # the index position of the given letter in alphabet, B = 1
 
     diamond = f"{' ' * where}A{' ' * where}\n" # first A line with spaces
@@ -21,6 +38,7 @@ def rows(letter):
     print(diamond)
 
     return diamond.splitlines()
+    """
 
     """
     print("\n")
