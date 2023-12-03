@@ -4,7 +4,7 @@ brackets = list("[](){}")
 
 def is_paired(input_string):
 
-
+    print("\ninput", input_string)
     cntr = []
 
     for items in range(len(brackets)):
@@ -42,7 +42,7 @@ def is_paired(input_string):
                 return False
     """
 
-    """ so fail
+    """so fail
     first_half = only_brackets[:(len(only_brackets) // 2)]
     print(first_half)
     first = "[({"
