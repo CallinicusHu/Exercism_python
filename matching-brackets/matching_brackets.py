@@ -2,29 +2,19 @@ import string
 
 brackets = list("[](){}")
 
+opener_br = list("[({")
+closer_br = list("])}")
+
+
 def is_paired(input_string):
 
-    print("\ninput", input_string)
     cntr = []
 
     for items in range(len(brackets)):
         cntr.append(input_string.count(brackets[items]))
 
-    if not((cntr[0] == cntr[1]) and (cntr[2] == cntr[3]) and (cntr[4] == cntr[5])):
-        print("right amounts")
-        return False
-
-    #check, fail, works but useless
-    check = []
-
-    for bracket in range(0, len(brackets), 2):
-        if brackets[bracket] in input_string:
-            for char in input_string:
-                if char == brackets[bracket] or char == brackets[bracket + 1]:
-                    check.append(char)
-
-
-    print(check)
+    if not ((cntr[0] == cntr[1]) and (cntr[2] == cntr[3]) and (cntr[4] == cntr[5])):
+        return False #checked if the number of brackets are correct
 
     only_brackets = input_string
 
@@ -32,32 +22,29 @@ def is_paired(input_string):
         if char not in brackets:
             only_brackets = only_brackets.replace(char, "")
 
-    print(only_brackets)
+    if only_brackets == "": return True  # no brackets, empty string
 
-    """ fail
-    for bracket in range(0, len(brackets), 2):
-        if brackets[bracket] in only_brackets:
-            where = only_brackets.find(brackets[bracket]) + 1
-            if not (only_brackets[-where] == brackets[bracket + 1]):
-                return False
-    """
+    if only_brackets[0] not in opener_br:
+        return False #starts with correct bracket
 
-    """so fail
-    first_half = only_brackets[:(len(only_brackets) // 2)]
-    print(first_half)
-    first = "[({"
-    second = "])}"
-    trans = {"[": "]", "(": ")", "{": "}", "]": "[", ")": "(", "}": "{"}
-    what = first_half.maketrans(trans)
-    second_half = first_half.translate(what)
-    print(second_half)
+    if only_brackets[-1] not in closer_br:
+        return False #ends with correct bracket
 
-    print(only_brackets)
-    print(first_half+second_half)
+    bracket_list = list(only_brackets)
 
-    if only_brackets == (first_half+second_half):
-        return False
-    """
+    def find_brsub(br):
+        for b in br:
+            if b in closer_br:
+                first = br.index(b)
+                break
 
-    return True
+        return br[:first + 1]
 
+    while len(bracket_list) > 0:
+        brsub = find_brsub(bracket_list)
+        if closer_br.index(brsub[-1]) != opener_br.index(brsub[-2]):
+            return False #incorrect opener closer pair
+        bracket_list.pop(len(brsub) - 1)
+        bracket_list.pop(len(brsub) - 2)
+
+    return True #rest must be correct
