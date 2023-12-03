@@ -20,12 +20,42 @@ def factors(value):
 
 
 def find_primes(value):
+    """
     primes = []
 
     for numbers in range(2, math.isqrt(value) + 10):  # +10 because low numbers sometimes fail
         if math.lcm(numbers, value) == value:
             primes.append(numbers)
 
-    print(primes)
+    """
+
+    """
+    primes = [num for num in range(math.isqrt(value) + 10)]
+    primes.pop(0)
+    number = primes[-1]
+
+    steps = 2
+    count = 1
+
+    while steps * number < value:
+        while steps * count < number:
+            if steps * count in primes:
+                primes.remove(steps * count)
+
+    """
+
+    primes = [True for num in range(math.isqrt(value) + 10)]
+    primes.pop(0)
+    number = primes[-1]
+
+    steps = 2
+    count = 1
+
+    while steps * number < value:
+        while steps * count < number:
+            if steps * count in primes:
+                primes[steps * count] = False
+
+
 
     return primes
