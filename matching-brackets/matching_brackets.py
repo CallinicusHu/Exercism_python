@@ -1,13 +1,26 @@
 import string
 
-brackets = list("[](){}")
+brackets = ["[", "]", "(", ")", "{", "}"]  # list("[](){}")
 
-opener_br = list("[({")
-closer_br = list("])}")
+opener_br = ["[", "(", "{"]  # list("[({")
+closer_br = ["]", ")", "}"]  # list("])}")
 
 
 def is_paired(input_string):
+    check = []
+    for char in input_string:
+        if char in opener_br:
+            check.append(char)
+        elif char in closer_br:
+            if not check:
+                return False
+            if closer_br.index(char) == opener_br.index(check[-1]):
+                check.pop()
+            else:
+                return False
 
+    return not check
+    """
     cntr = []
 
     for items in range(len(brackets)):
@@ -48,3 +61,4 @@ def is_paired(input_string):
         bracket_list.pop(len(brsub) - 2)
 
     return True #rest must be correct
+    """
