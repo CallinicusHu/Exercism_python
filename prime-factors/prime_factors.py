@@ -31,34 +31,3 @@ def find_primes(value):
 
 def find_lcm_part(value):
     return 10 ** (len(str(value)) - len(str(value))//2) #now it should work with any number
-
-    """
-    primes = [num for num in range(math.isqrt(value) + 10)]
-    primes.pop(0)
-    number = primes[-1]
-
-    steps = 2
-    count = 1
-
-    while steps * number < value:
-        while steps * count < number:
-            if steps * count in primes:
-                primes.remove(steps * count)
-
-    """
-    """
-    primes = [True for num in range(math.isqrt(value) + 10)]
-    primes.pop(0)
-    number = primes[-1]
-
-    steps = 2
-    count = 1
-
-    while steps * number < value:
-        while steps * count < number:
-            if steps * count in primes:
-                primes[steps * count] = False
-
-    """
-
-
