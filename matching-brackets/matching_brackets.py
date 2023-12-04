@@ -1,6 +1,6 @@
 import string
 
-brackets = ["[", "]", "(", ")", "{", "}"]  # list("[](){}")
+#brackets = ["[", "]", "(", ")", "{", "}"]  # list("[](){}")
 
 opener_br = ["[", "(", "{"]  # list("[({")
 closer_br = ["]", ")", "}"]  # list("])}")
