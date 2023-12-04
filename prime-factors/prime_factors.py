@@ -26,7 +26,6 @@ def find_primes(value):
     for numbers in range(2, find_lcm_part(value)):
         if math.lcm(numbers, value) == value:
             prime_candidates.append(numbers)
-    print(prime_candidates)
 
     return prime_candidates
 
