@@ -10,7 +10,6 @@ def get_list_of_wagons(*wagons):
     return list(wagons)
 
 
-
 def fix_list_of_wagons(each_wagons_id, missing_wagons):
     """Fix the list of wagons.
 
@@ -23,10 +22,7 @@ def fix_list_of_wagons(each_wagons_id, missing_wagons):
     return [one, *missing_wagons, *rest, first, second]
 
 
-
-
-
-def add_missing_stops(start, **end):
+def add_missing_stops(from_to, **end):
     """Add missing stops to route dict.
 
     :param route: dict - the dict of routing information.
@@ -34,15 +30,7 @@ def add_missing_stops(start, **end):
     :return: dict - updated route dictionary.
     """
 
-    start_keys = list(start.keys())
-    start_values = list(start.values())
-
-    stops = {start_keys[0]: start_values[0],
-             'stops': list(end.values()),
-             start_keys[1]: start_values[1]}
-
-    return stops
-
+    return {**from_to, 'stops': list(end.values())}
 
 
 def extend_route_information(route, more_route_information):

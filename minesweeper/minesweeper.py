@@ -41,4 +41,6 @@ def annotate(minefield):
 
                 mines = 0
 
+
+
     return minefield
