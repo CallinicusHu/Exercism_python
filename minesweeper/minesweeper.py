@@ -21,6 +21,7 @@ def annotate(minefield):
                     try:
                         if minefield[i + lin][c + col] == "*":
                             mines += 1
+
                     except:
                         continue
 
