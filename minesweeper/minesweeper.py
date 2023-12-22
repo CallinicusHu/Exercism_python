@@ -30,5 +30,4 @@ def annotate(minefield):
 
         minefield[i] = "".join(line)
 
-
     return minefield
