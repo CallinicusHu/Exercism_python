@@ -13,17 +13,18 @@ def annotate(minefield):
 
     iterate = list(itertools.product([-1, 0, 1], [-1, 0, 1]))
     del iterate[4]
+    are_valid_indexes = lambda a, i, y, b, c, x: (a > (i + y) >= 0) and (b > (c + x) >= 0)
+    mines = 0
 
-    for i, lines in enumerate(minefield):
-        for c, col in enumerate(lines):
-            mines = 0
-            if minefield[i][c] == " ":
+    for i, line in enumerate(minefield):
+        for c, entry in enumerate(line):
+            if entry == " ":
                 for y, x in iterate:
-                    if ((len(minefield) > (i + y) >= 0) and (len(lines) > (c + x) >= 0) and
-                            minefield[i + y][c + x] == "*"):
+                    if are_valid_indexes(len(minefield), i, y, len(line), c, x) and minefield[i + y][c + x] == "*":
                         mines += 1
 
             if mines > 0:
                 minefield[i] = f"{minefield[i][:c]}{mines}{minefield[i][c + 1:]}"
+                mines = 0
 
     return minefield
