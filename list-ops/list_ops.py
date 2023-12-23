@@ -3,24 +3,34 @@ def append(list1, list2):
 
 
 def concat(lists): #how can I write this in one line?
+
+    #works without function but multiple lines
     concated = []
     for item in lists:
         concated += item
     return concated
 
+    #print([item for item in lists]) #I don't understand
+    #return [item for item in lists] #not works I don't understand how to compress that for
 
-def filter(function, list): #how can I write this in one line?
-    filtered = []
-    for item in list:
-        if function(item):
-            filtered += [item]
-    return filtered
+
+
+def filter(function, list):
+    return [item for item in list if function(item)]
+
 
 def length(list): #how can I write this in one line?
-    leng = 0
-    for item in list:
-        leng += 1
-    return leng
+
+    #works without function but multiple lines
+    #leng = 0
+    #for item in list:
+    #    leng += 1
+    #return leng
+
+    return sum(1 for item in list) #this works but I am not sure if I want to call functions in this task
+
+
+
 
 
 def map(function, list): #how can I write this in one line?
@@ -30,12 +40,12 @@ def map(function, list): #how can I write this in one line?
     return new_list
 
 
-def foldl(function, list, initial): #I don't yet understand the original function
+def foldl(function, list, initial): #I don't yet understand what to do here
     folded = []
     return folded
 
 
-def foldr(function, list, initial): #I yet to understand the original function
+def foldr(function, list, initial): #I yet to understand what to do here
     folded = []
     return folded
 
@@ -47,4 +57,5 @@ def reverse(list):
         reversed = append(reversed, [list[leng]])
         leng -= 1
     return reversed
+
     #return list[::-1] #this works of course but it feels like cheeting
