@@ -30,9 +30,6 @@ def length(list): #how can I write this in one line?
     return sum(1 for item in list) #this works but I am not sure if I want to call functions in this task
 
 
-
-
-
 def map(function, list): #how can I write this in one line?
     new_list = []
     for item in list:
@@ -56,6 +53,7 @@ def reverse(list):
     for item in list:
         reversed = append(reversed, [list[leng]])
         leng -= 1
+
     return reversed
 
     #return list[::-1] #this works of course but it feels like cheeting
