@@ -1,59 +1,43 @@
-def append(list1, list2):
-    return list1 + list2
+def append(lst1, lst2):
+    return lst1 + lst2
 
 
-def concat(lists): #how can I write this in one line?
-
-    #works without function but multiple lines
-    concated = []
-    for item in lists:
-        concated += item
-    return concated
-
-    #print([item for item in lists]) #I don't understand
-    #return [item for item in lists] #not works I don't understand how to compress that for
+def concat(lsts): #one line
+    return [x for lst in lsts for x in lst]
 
 
-
-def filter(function, list):
-    return [item for item in list if function(item)]
-
-
-def length(list): #how can I write this in one line?
-
-    #works without function but multiple lines
-    #leng = 0
-    #for item in list:
-    #    leng += 1
-    #return leng
-
-    return sum(1 for item in list) #this works but I am not sure if I want to call functions in this task
+def filter(function, lst): #one line
+    return [item for item in lst if function(item)]
 
 
-def map(function, list): #how can I write this in one line?
-    new_list = []
-    for item in list:
-        new_list += [function(item)]
-    return new_list
+def length(lst): #can this be done in one line without calling a builtin function?
+    return sum(1 for item in lst) #this works but I am not sure if I want to call functions in this task
 
 
-def foldl(function, list, initial): #I don't yet understand what to do here
-    folded = []
-    return folded
+def map(function, lst): #one line
+    return [function(item) for item in lst]
 
 
-def foldr(function, list, initial): #I yet to understand what to do here
-    folded = []
-    return folded
+def foldl(function, lst, initial): #can this be done in one line?
+    for item in lst:
+        initial = function(initial, item)
+    return initial
 
 
-def reverse(list):
-    leng = length(list)-1 #this is not cheating I wrote it
+def foldr(function, lst, initial): #can this be done in one line?
+    for item in reverse(lst):
+        initial = function(initial, item)
+    return initial
+
+
+def reverse(lst): #can this be done in one line?
+    leng = length(lst)-1 #this is not cheating I wrote it
     reversed = []
-    for item in list:
-        reversed = append(reversed, [list[leng]])
+    for item in lst: #I do not use the item in this for anything, am I making a mistake here?
+        reversed = append(reversed, [lst[leng]]) #this too
         leng -= 1
 
     return reversed
 
-    #return list[::-1] #this works of course but it feels like cheeting
+    #return lst[::-1] #this works of course but again it feels like cheeting
+
