@@ -55,10 +55,12 @@ def any_big(number):
         power = 3
     elif lennie < 9:
         power = 6
-    elif lennie < 12:
-        power = 9
+    #elif lennie < 12:
+    #    power = 9
+    #else:
+    #    power = 12
     else:
-        power = 12
+        power = 9
 
     # power = ??? #in one line / formula
 
@@ -66,6 +68,14 @@ def any_big(number):
     if number % (10 ** power) == 0:
         mendokusai = f" {prefixes[min(power, 9)]}"
 
-    return f"{any_big(number // ((10 ** power) - 3))}{mendokusai}{any_big(number % (10 ** power))}"
+    return f"{any_big(number // (10 ** power))}{mendokusai}{any_big(number % (10 ** power))}"
+    # ???
+    """
+    >>> 987_654_321_123 % 10 ** 9 
+    654321123
+    >>> 987_654_321_123 // 10 ** 9
+    987
 
-print(say(123_456_789))
+    """
+
+
