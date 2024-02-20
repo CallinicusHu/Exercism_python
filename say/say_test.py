@@ -62,7 +62,7 @@ class SayTest(unittest.TestCase):
 
     def test_a_big_number(self):
         self.assertEqual(
-            say(987654321123),
+            say(987_654_321_123),
             "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three",
         )
 
