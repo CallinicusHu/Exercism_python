@@ -64,9 +64,9 @@ def any_big(number):
 
     # power = ??? #in one line / formula
 
-    mendokusai = f" {prefixes[min(power, 9)]} "
+    mendokusai = f" {prefixes[power]} "
     if number % (10 ** power) == 0:
-        mendokusai = f" {prefixes[min(power, 9)]}"
+        mendokusai = f" {prefixes[power]}"
 
     return f"{any_big(number // (10 ** power))}{mendokusai}{any_big(number % (10 ** power))}"
     # ???
