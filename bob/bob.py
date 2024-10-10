@@ -3,7 +3,7 @@ def response(hey_bob):
     bob = hey_bob.strip()
 
     reply = ["Sure.", "Whoa, chill out!", "Calm down, I know what I'm doing!", "Fine. Be that way!", "Whatever."]
-  
+
     if len(bob) < 1:
         x = 3
     
